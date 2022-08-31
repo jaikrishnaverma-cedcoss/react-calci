@@ -10,11 +10,13 @@ class Calci extends Component {
         this.setState({ val: event.target.value });
     }
     dotflag = 0;
+    resCheck=true;
     //    prevoperator={"+":true,"-":true,"*":true,"/":true,"%":true};
     operatorflag = 0;
     counter = 0
     add = event => {
         let digit = event.target.innerText;
+     
         if (this.counter === 0 || this.state.val[0]==='0') {
             if (digit === '+' || digit === '-' || digit === '*' || digit === '/' || digit === '%') {
                 return false;
@@ -45,7 +47,15 @@ class Calci extends Component {
         else {
             this.operatorflag = 0
         }
-        this.setState({ val: this.state.val + digit })
+        if(this.resCheck)
+        {
+      this.setState({ val: this.state.val + digit })
+        }
+        else{
+
+      this.setState({ val: digit })
+      this.resCheck=true
+        }
 
     }
     cleared = event => {
@@ -62,6 +72,7 @@ class Calci extends Component {
         let y = eval(this.state.val)
         console.log(y)
         this.setState({ val: y })
+        this.resCheck=false;
     }
     render() {
         return (
