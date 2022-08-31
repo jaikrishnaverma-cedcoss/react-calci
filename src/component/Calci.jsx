@@ -72,7 +72,7 @@ class Calci extends Component {
                             <div>
                                 <label className="switch">
                                     {/* <input type="checkbox" onClick={this.inpuVal} value={this.state.value} checked /> */}
-
+{/* qwe */}
                                     {/* <input type="checkbox" checked /> */}
                                     <span className="slider round"></span>
                                 </label></div>
